@@ -3,13 +3,14 @@
 
 int main()
 {
-  DDRB = 0xFF;
+  DDRB |= (1<<DDB5);
 
   while(1)
   {
-    PORTB = 0xFF;
-    _delay_ms(1000);
-    PORTB = 0x00;
-    _delay_ms(1000);
+    PORTB |= (1<<PORTB5);
+    _delay_ms(200);
+
+    PORTB &= ~(1<<PORTB5);
+    _delay_ms(200);
   }
 }
